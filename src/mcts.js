@@ -24,6 +24,10 @@ function select(node, C) {
     if (node.unexpandedMoves.length > 0) {
         return expand(node);
     }
+    if (node.children.length === 0)
+    {
+        return node
+    }
     let bestNode = node.children[0];
     let bestValue = logicOfGame.computeMCTSNodeValue(node.children[0]);
     for (let i = 1; i < node.children.length; ++i) {
@@ -69,6 +73,7 @@ this.addEventListener(
         }
         let bestNode = logicOfGame.getBestMCTSNode(root);
         this.postMessage([bestNode.move]);
+        
     },
     false
 );

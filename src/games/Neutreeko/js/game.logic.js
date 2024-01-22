@@ -733,12 +733,7 @@ const logicOfGame = {
             }
         }
     },
-    generateUniqueKey: function (state, player) {
-        return objectHash.sha1({
-            state,
-            player,
-        });
-    },
+    generateUniqueKey: undefined,
     
 // Funkcja obliczania wartości węzła MCTS
 computeMCTSNodeValue(node) {
